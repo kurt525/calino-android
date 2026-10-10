@@ -2,6 +2,7 @@ name: Android
 
 on:
   push:
+    branches: [main]
     paths-ignore:
       - '**.md'
       - 'docs/**'
@@ -34,7 +35,7 @@ jobs:
           cache: gradle
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
 
       - name: Keep a stable debug signing key
         uses: actions/cache@v4
