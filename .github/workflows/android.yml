@@ -36,6 +36,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v4
+        with:
+          packages: ""
 
       - name: Keep a stable debug signing key
         uses: actions/cache@v4
@@ -44,7 +46,11 @@ jobs:
           key: calino-russian-debug-keystore-v1
 
       - name: Install Android SDK packages
-        run: sdkmanager "platforms;android-37" "platforms;android-36" "build-tools;36.0.0" "platform-tools"
+        run: |
+          android --sdk "$ANDROID_HOME" sdk install --no-metrics platforms/android-37.0
+          android --sdk "$ANDROID_HOME" sdk install --no-metrics platforms/android-36
+          android --sdk "$ANDROID_HOME" sdk install --no-metrics build-tools/36.0.0
+          android --sdk "$ANDROID_HOME" sdk install --no-metrics platform-tools
 
       - name: Check Russian resources
         run: python3 scripts/check-russian-resources.py
