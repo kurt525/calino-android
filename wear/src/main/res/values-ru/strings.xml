@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wear_agenda">Расписание</string>
+    <string name="wear_tasks">Задачи</string>
+    <string name="wear_nothing_planned">Ничего не запланировано</string>
+    <string name="wear_no_open_tasks">Нет открытых задач</string>
+    <string name="wear_set_up_on_phone">Настройте Calino на телефоне</string>
+    <string name="wear_sync_automatically">Часы синхронизируются автоматически</string>
+</resources>

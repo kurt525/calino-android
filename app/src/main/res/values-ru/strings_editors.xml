@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ed_editor_cancel">Отмена</string>
+    <string name="ed_editor_save">Сохранить</string>
+    <string name="ed_editor_more_options">Дополнительные параметры</string>
+    <string name="ed_editor_attendees">Участники</string>
+    <string name="ed_editor_attendee_email">Электронная почта участника</string>
+    <string name="ed_editor_add_attendee_email">Добавить адрес участника…</string>
+    <string name="ed_editor_add">Добавить</string>
+</resources>

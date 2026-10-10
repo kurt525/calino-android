@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="set_settings">Настройки</string>
+    <string name="set_language">Язык</string>
+    <string name="set_choose_language">Выберите язык интерфейса Calino.</string>
+    <string name="set_cancel">Отмена</string>
+</resources>
