@@ -8,6 +8,7 @@ from collections import Counter
 from pathlib import Path
 
 PLACEHOLDER = re.compile(r"%(?:\d+\$)?[-#+ 0,(]*\d*(?:\.\d+)?[a-zA-Z%]|\^\d+")
+RU_REQUIRED_QUANTITIES = {"one", "few", "many", "other"}
 
 roots = [
     (Path("app/src/main/res/values"), Path("app/src/main/res/values-ru"), Path("app/src/main/res/xml/locales_config.xml")),
@@ -19,18 +20,18 @@ errors: list[str] = []
 def parse(path: Path):
     return ET.parse(path).getroot()
 
-def entries(path: Path):
-    root = parse(path)
-    out = {}
-    for child in root:
-        if child.tag == "string":
-            if child.attrib.get("translatable") == "false":
-                continue
-            out[("string", child.attrib["name"], None)] = child.text or ""
-        elif child.tag == "plurals":
-            name = child.attrib["name"]
-            for item in child.findall("item"):
-                out[("plurals", name, item.attrib["quantity"])] = item.text or ""
+def string_map(path: Path):
+    out={}
+    for child in parse(path):
+        if child.tag=="string" and child.attrib.get("translatable")!="false":
+            out[child.attrib["name"]]=child.text or ""
+    return out
+
+def plural_map(path: Path):
+    out={}
+    for child in parse(path):
+        if child.tag=="plurals":
+            out[child.attrib["name"]]={item.attrib["quantity"]:item.text or "" for item in child.findall("item")}
     return out
 
 for base, ru, locale_config in roots:
@@ -47,22 +48,34 @@ for base, ru, locale_config in roots:
         continue
 
     for name in source_files:
-        src = entries(base / name)
-        dst = entries(ru / name)
-        if set(src) != set(dst):
-            missing = sorted(set(src) - set(dst))
-            extra = sorted(set(dst) - set(src))
-            errors.append(f"{name}: resource keys differ; missing={missing[:10]} extra={extra[:10]}")
-            continue
-        for key, src_text in src.items():
-            dst_text = dst[key]
+        src_strings=string_map(base/name)
+        dst_strings=string_map(ru/name)
+        if set(src_strings)!=set(dst_strings):
+            errors.append(f"{name}: string resource keys differ")
+        for key,src_text in src_strings.items():
+            dst_text=dst_strings.get(key,"")
             if Counter(PLACEHOLDER.findall(src_text)) != Counter(PLACEHOLDER.findall(dst_text)):
-                errors.append(
-                    f"{name}:{key[1]}:{key[2]} placeholders differ: "
-                    f"{PLACEHOLDER.findall(src_text)} != {PLACEHOLDER.findall(dst_text)}"
-                )
+                errors.append(f"{name}:{key} placeholders differ")
             if not dst_text.strip():
-                errors.append(f"{name}:{key[1]}:{key[2]} Russian text is empty")
+                errors.append(f"{name}:{key} Russian text is empty")
+
+        src_plurals=plural_map(base/name)
+        dst_plurals=plural_map(ru/name)
+        if set(src_plurals)!=set(dst_plurals):
+            errors.append(f"{name}: plural resource names differ")
+        for key,src_forms in src_plurals.items():
+            dst_forms=dst_plurals.get(key,{})
+            if not RU_REQUIRED_QUANTITIES.issubset(dst_forms):
+                errors.append(f"{name}:{key} missing Russian plural quantities: {sorted(RU_REQUIRED_QUANTITIES-set(dst_forms))}")
+                continue
+            source_other=src_forms.get("other","")
+            for quantity in RU_REQUIRED_QUANTITIES:
+                text=dst_forms[quantity]
+                reference = src_forms.get("one","") if quantity == "one" else source_other
+                if Counter(PLACEHOLDER.findall(text)) != Counter(PLACEHOLDER.findall(reference)):
+                    errors.append(f"{name}:{key}:{quantity} placeholders differ from source plural form")
+                if not text.strip():
+                    errors.append(f"{name}:{key}:{quantity} Russian plural text is empty")
 
 if errors:
     for error in errors:

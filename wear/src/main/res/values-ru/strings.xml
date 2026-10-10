@@ -46,15 +46,21 @@
     <string name="wear_some_items_hidden">Некоторые элементы скрыты</string>
     <string name="wear_just_now">только что</string>
     <plurals name="wear_minutes_ago">
-        <item quantity="one">%1$d минут назад</item>
+        <item quantity="one">%1$d минуту назад</item>
+        <item quantity="few">%1$d минуты назад</item>
+        <item quantity="many">%1$d минут назад</item>
         <item quantity="other">%1$d минут назад</item>
     </plurals>
     <plurals name="wear_hours_ago">
-        <item quantity="one">%1$d часов назад</item>
+        <item quantity="one">%1$d час назад</item>
+        <item quantity="few">%1$d часа назад</item>
+        <item quantity="many">%1$d часов назад</item>
         <item quantity="other">%1$d часов назад</item>
     </plurals>
     <plurals name="wear_days_ago">
-        <item quantity="one">%1$d дней назад</item>
+        <item quantity="one">%1$d день назад</item>
+        <item quantity="few">%1$d дня назад</item>
+        <item quantity="many">%1$d дней назад</item>
         <item quantity="other">%1$d дней назад</item>
     </plurals>
     <string name="wear_today">Сегодня</string>
@@ -74,8 +80,10 @@
     <string name="wear_open_calino_on_phone_to_sync">Откройте Calino на телефоне для синхронизации</string>
     <string name="wear_nothing_else_planned">Больше ничего не запланировано</string>
     <plurals name="wear_more_items">
-        <item quantity="one">+%1$d еще</item>
-        <item quantity="other">+%1$d еще</item>
+        <item quantity="one">+%1$d ещё</item>
+        <item quantity="few">+%1$d ещё</item>
+        <item quantity="many">+%1$d ещё</item>
+        <item quantity="other">+%1$d ещё</item>
     </plurals>
     <string name="wear_tile_row">%1$s  %2$s</string>
     <string name="wear_accessibility_title_and_description">%1$s: %2$s</string>

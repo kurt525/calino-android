@@ -7,8 +7,10 @@
     <string name="cal_collapse_tasks_due">Свернуть задачи, срок которых истекает для %1$s</string>
     <string name="cal_expand_tasks_due">Развернуть задачи, срок которых истекает для %1$s</string>
     <plurals name="cal_tasks_due_heading">
-        <item quantity="one">ЗАДАЧИ СРОКОМ · %1$d ОТКРЫТО</item>
-        <item quantity="other">ЗАДАЧИ СРОКОМ · %1$d ОТКРЫТО</item>
+        <item quantity="one">ЗАДАЧИ СО СРОКОМ · %1$d ОТКРЫТА</item>
+        <item quantity="few">ЗАДАЧИ СО СРОКОМ · %1$d ОТКРЫТЫ</item>
+        <item quantity="many">ЗАДАЧИ СО СРОКОМ · %1$d ОТКРЫТО</item>
+        <item quantity="other">ЗАДАЧИ СО СРОКОМ · %1$d ОТКРЫТО</item>
     </plurals>
     <string name="cal_all_day">Весь день</string>
     <string name="cal_agenda_for_date">Повестка дня для %1$s</string>
@@ -139,12 +141,16 @@
     <string name="cal_sync_incomplete">Не удалось прочитать часть календаря. Откройте Календарь для подробностей.</string>
     <string name="cal_sync_failed">Не удается обновить календарь. Откройте Календарь для подробностей.</string>
     <plurals name="cal_sync_waiting">
-        <item quantity="one">%1$d сохраненное изменение ожидает синхронизации. Откройте Календарь для подробностей.</item>
-        <item quantity="other">%1$d сохраненные изменения ожидают синхронизации. Откройте Календарь для подробностей.</item>
+        <item quantity="one">%1$d сохранённое изменение ожидает синхронизации. Откройте «Календари» для подробностей.</item>
+        <item quantity="few">%1$d сохранённых изменения ожидают синхронизации. Откройте «Календари» для подробностей.</item>
+        <item quantity="many">%1$d сохранённых изменений ожидают синхронизации. Откройте «Календари» для подробностей.</item>
+        <item quantity="other">%1$d сохранённых изменений ожидают синхронизации. Откройте «Календари» для подробностей.</item>
     </plurals>
     <plurals name="cal_sync_could_not_sync">
-        <item quantity="one">%1$d изменение не удалось синхронизировать. Откройте Календарь для проверки.</item>
-        <item quantity="other">%1$d изменения не удалось синхронизировать. Откройте Календарь для проверки.</item>
+        <item quantity="one">%1$d изменение не удалось синхронизировать. Откройте «Календари» для проверки.</item>
+        <item quantity="few">%1$d изменения не удалось синхронизировать. Откройте «Календари» для проверки.</item>
+        <item quantity="many">%1$d изменений не удалось синхронизировать. Откройте «Календари» для проверки.</item>
+        <item quantity="other">%1$d изменений не удалось синхронизировать. Откройте «Календари» для проверки.</item>
     </plurals>
     <string name="cal_day_empty">%1$s, ничего не запланировано</string>
     <string name="cal_day_date_today">%1$s, сегодня</string>
@@ -304,31 +310,45 @@
     <string name="cal_day_all_day">%1$s · весь день</string>
     <plurals name="cal_open_tasks_due">
         <item quantity="one">1 открытая задача</item>
-        <item quantity="other">%1$d открытые задачи</item>
+        <item quantity="few">%1$d открытые задачи</item>
+        <item quantity="many">%1$d открытых задач</item>
+        <item quantity="other">%1$d открытых задач</item>
     </plurals>
     <plurals name="cal_sometime_this_week_open_count">
-        <item quantity="one">В какой-то день этой недели, %1$d открытая задача</item>
-        <item quantity="other">В какой-то день этой недели, %1$d открытые задачи</item>
+        <item quantity="one">На этой неделе — %1$d открытая задача</item>
+        <item quantity="few">На этой неделе — %1$d открытые задачи</item>
+        <item quantity="many">На этой неделе — %1$d открытых задач</item>
+        <item quantity="other">На этой неделе — %1$d открытых задач</item>
     </plurals>
     <plurals name="cal_week_range_count">
         <item quantity="one">%1$s – %2$s · %3$d задача</item>
-        <item quantity="other">%1$s – %2$s · %3$d задачи</item>
+        <item quantity="few">%1$s – %2$s · %3$d задачи</item>
+        <item quantity="many">%1$s – %2$s · %3$d задач</item>
+        <item quantity="other">%1$s – %2$s · %3$d задач</item>
     </plurals>
     <plurals name="cal_year_events">
         <item quantity="one">%1$s %2$d, %3$d событие</item>
-        <item quantity="other">%1$s %2$d, %3$d события</item>
+        <item quantity="few">%1$s %2$d, %3$d события</item>
+        <item quantity="many">%1$s %2$d, %3$d событий</item>
+        <item quantity="other">%1$s %2$d, %3$d событий</item>
     </plurals>
     <plurals name="cal_pending_invitations">
-        <item quantity="one">Ожидающие приглашения (%1$d)</item>
-        <item quantity="other">Ожидающие приглашения (%1$d)</item>
+        <item quantity="one">Ожидающее приглашение (%1$d)</item>
+        <item quantity="few">Ожидающие приглашения (%1$d)</item>
+        <item quantity="many">Ожидающих приглашений (%1$d)</item>
+        <item quantity="other">Ожидающих приглашений (%1$d)</item>
     </plurals>
     <plurals name="cal_subtasks_open">
-        <item quantity="one">%1$d все еще открыты.</item>
-        <item quantity="other">%1$d все еще открыты.</item>
+        <item quantity="one">Открыто: %1$d.</item>
+        <item quantity="few">Открыто: %1$d.</item>
+        <item quantity="many">Открыто: %1$d.</item>
+        <item quantity="other">Открыто: %1$d.</item>
     </plurals>
     <plurals name="cal_more_count">
-        <item quantity="one">+%1$d еще</item>
-        <item quantity="other">+%1$d еще</item>
+        <item quantity="one">+%1$d ещё</item>
+        <item quantity="few">+%1$d ещё</item>
+        <item quantity="many">+%1$d ещё</item>
+        <item quantity="other">+%1$d ещё</item>
     </plurals>
     <string name="cal_task_due_label">%1$s, срок %2$s</string>
     <string name="cal_mark_named_task_open">Отметить %1$s как открытые</string>
@@ -365,22 +385,32 @@
     <string name="cal_task_count_one">Задача %1$d</string>
     <plurals name="cal_day_span_count">
         <item quantity="one">1 день</item>
+        <item quantity="few">%1$d дня</item>
+        <item quantity="many">%1$d дней</item>
         <item quantity="other">%1$d дней</item>
     </plurals>
     <plurals name="cal_overflow_event_count">
         <item quantity="one">1 событие</item>
+        <item quantity="few">%1$d события</item>
+        <item quantity="many">%1$d событий</item>
         <item quantity="other">%1$d событий</item>
     </plurals>
     <plurals name="cal_overflow_task_count">
         <item quantity="one">1 задача</item>
+        <item quantity="few">%1$d задачи</item>
+        <item quantity="many">%1$d задач</item>
         <item quantity="other">%1$d задач</item>
     </plurals>
     <plurals name="cal_show_more_all_day_count">
         <item quantity="one">Показать ещё 1 элемент на весь день</item>
+        <item quantity="few">Показать ещё %1$d элемента на весь день</item>
+        <item quantity="many">Показать ещё %1$d элементов на весь день</item>
         <item quantity="other">Показать ещё %1$d элементов на весь день</item>
     </plurals>
     <plurals name="cal_day_event_count">
         <item quantity="one">%1$s, %2$d событие</item>
+        <item quantity="few">%1$s, %2$d события</item>
+        <item quantity="many">%1$s, %2$d событий</item>
         <item quantity="other">%1$s, %2$d событий</item>
     </plurals>
     <string name="cal_high_priority">высокий приоритет</string>

@@ -64,8 +64,10 @@
     <string name="host_readonly_device">Этот календарь принадлежит другому приложению на этом устройстве. Calino может показывать его, но не может изменять.</string>
     <string name="host_import_result">Импортировано %1$d, в очереди %2$d, пропущено %3$d, не удалось %4$d.</string>
     <plurals name="host_import_events">
-        <item quantity="one">Импортировать событие %1$d?</item>
-        <item quantity="other">Импортировать события %1$d?</item>
+        <item quantity="one">Импортировать %1$d событие?</item>
+        <item quantity="few">Импортировать %1$d события?</item>
+        <item quantity="many">Импортировать %1$d событий?</item>
+        <item quantity="other">Импортировать %1$d событий?</item>
     </plurals>
     <string name="host_copy_suffix">(копировать)</string>
 </resources>

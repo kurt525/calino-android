@@ -29,8 +29,10 @@
     <string name="ed_ai_loading_models">Загрузка моделей…</string>
     <string name="ed_ai_no_models">Модели не были возвращены.</string>
     <plurals name="ed_ai_models_available">
-        <item quantity="one">Модель %1$d доступна</item>
-        <item quantity="other">Модели %1$d доступны</item>
+        <item quantity="one">Доступна %1$d модель</item>
+        <item quantity="few">Доступны %1$d модели</item>
+        <item quantity="many">Доступно %1$d моделей</item>
+        <item quantity="other">Доступно %1$d моделей</item>
     </plurals>
     <string name="ed_ai_load_models_error">Не удалось загрузить модели.</string>
     <string name="ed_ai_settings_intro">Используйте свой собственный ключ API для заполнения события или задачи с фото. Изображение отправляется напрямую вашему выбранному провайдеру.</string>
@@ -102,8 +104,10 @@
     <string name="ed_contact_language">Язык</string>
     <string name="ed_contact_members">Участники</string>
     <plurals name="ed_contact_member_count">
-        <item quantity="one">контакт %1$d</item>
-        <item quantity="other">контакты %1$d</item>
+        <item quantity="one">%1$d контакт</item>
+        <item quantity="few">%1$d контакта</item>
+        <item quantity="many">%1$d контактов</item>
+        <item quantity="other">%1$d контактов</item>
     </plurals>
     <string name="ed_contact_birthday">День рождения</string>
     <string name="ed_contact_anniversary">Годовщина</string>
@@ -153,13 +157,17 @@
     <string name="ed_journal_no_entries_yet">Записей пока нет</string>
     <plurals name="ed_journal_entries_since">
         <item quantity="one">%1$d запись с %2$s</item>
-        <item quantity="other">%1$d записи с %2$s</item>
+        <item quantity="few">%1$d записи с %2$s</item>
+        <item quantity="many">%1$d записей с %2$s</item>
+        <item quantity="other">%1$d записей с %2$s</item>
     </plurals>
     <string name="ed_journal_search">Поиск в журнале</string>
     <string name="ed_journal_month_empty">%1$s, записей нет</string>
     <plurals name="ed_journal_month_entries">
         <item quantity="one">%1$d запись, %2$s</item>
-        <item quantity="other">%1$d записи, %2$s</item>
+        <item quantity="few">%1$d записи, %2$s</item>
+        <item quantity="many">%1$d записей, %2$s</item>
+        <item quantity="other">%1$d записей, %2$s</item>
     </plurals>
     <string name="ed_journal_overview_level">Изменить обзор журнала, уровень %1$d из 2</string>
     <string name="ed_journal_pull_up_collapse">ПОДТЯНИТЕ ДЛЯ СВЕРТЫВАНИЯ</string>
@@ -168,11 +176,15 @@
     <string name="ed_journal_pull_month">ПОДТЯНИТЕ ДЛЯ МЕСЯЦА</string>
     <plurals name="ed_journal_entries_in_month">
         <item quantity="one">%1$d ЗАПИСЬ В %2$s</item>
-        <item quantity="other">%1$d ЗАПИСИ В %2$s</item>
+        <item quantity="few">%1$d ЗАПИСИ В %2$s</item>
+        <item quantity="many">%1$d ЗАПИСЕЙ В %2$s</item>
+        <item quantity="other">%1$d ЗАПИСЕЙ В %2$s</item>
     </plurals>
     <plurals name="ed_journal_entries_count">
         <item quantity="one">%1$d ЗАПИСЬ</item>
-        <item quantity="other">%1$d ЗАПИСИ</item>
+        <item quantity="few">%1$d ЗАПИСИ</item>
+        <item quantity="many">%1$d ЗАПИСЕЙ</item>
+        <item quantity="other">%1$d ЗАПИСЕЙ</item>
     </plurals>
     <string name="ed_journal_untitled_note">Без названия</string>
     <string name="ed_journal_open_entry">Открыть запись журнала %1$s</string>
@@ -198,7 +210,9 @@
     <string name="ed_journal_add_title">Добавить заголовок заметки</string>
     <plurals name="ed_journal_words">
         <item quantity="one">%1$d слово</item>
-        <item quantity="other">%1$d слова</item>
+        <item quantity="few">%1$d слова</item>
+        <item quantity="many">%1$d слов</item>
+        <item quantity="other">%1$d слов</item>
     </plurals>
     <string name="ed_journal_write">Написать</string>
     <string name="ed_journal_preview">Просмотр</string>
@@ -208,8 +222,10 @@
     <string name="ed_journal_no_note_text">Нет текста заметки</string>
     <string name="ed_journal_date_description">Дата: %1$s</string>
     <plurals name="ed_journal_minutes_read">
-        <item quantity="one">%1$d мин чтения</item>
-        <item quantity="other">%1$d мин чтения</item>
+        <item quantity="one">%1$d минута чтения</item>
+        <item quantity="few">%1$d минуты чтения</item>
+        <item quantity="many">%1$d минут чтения</item>
+        <item quantity="other">%1$d минут чтения</item>
     </plurals>
     <string name="ed_journal_format_heading">Заголовок</string>
     <string name="ed_journal_format_bold">Жирный</string>
@@ -266,7 +282,9 @@
     <string name="ed_reminder_repeats_every">повторяется %1$d× каждые %2$s</string>
     <plurals name="ed_reminder_count">
         <item quantity="one">%1$d напоминание</item>
-        <item quantity="other">%1$d напоминания</item>
+        <item quantity="few">%1$d напоминания</item>
+        <item quantity="many">%1$d напоминаний</item>
+        <item quantity="other">%1$d напоминаний</item>
     </plurals>
     <string name="ed_editor_notes">Заметки</string>
     <string name="ed_editor_description">Описание</string>
@@ -290,7 +308,9 @@
     <string name="ed_repeat_more">Ещё на один раз больше</string>
     <plurals name="ed_repeat_times">
         <item quantity="one">%d раз</item>
-        <item quantity="other">%d раз(а)</item>
+        <item quantity="few">%d раза</item>
+        <item quantity="many">%d раз</item>
+        <item quantity="other">%d раз</item>
     </plurals>
     <string name="ed_repeat_series_note">Изменения применяются ко всей серии.</string>
     <string name="ed_repeat_custom_note">У этого правила есть пользовательские части. Изменение его заменяет их.</string>
@@ -507,27 +527,39 @@
     <string name="ed_day_count_one">%1$d событие</string>
     <plurals name="ed_day_event_count">
         <item quantity="one">%1$d событие</item>
-        <item quantity="other">%1$d события</item>
+        <item quantity="few">%1$d события</item>
+        <item quantity="many">%1$d событий</item>
+        <item quantity="other">%1$d событий</item>
     </plurals>
     <plurals name="ed_relative_days_future">
         <item quantity="one">через %1$d день</item>
+        <item quantity="few">через %1$d дня</item>
+        <item quantity="many">через %1$d дней</item>
         <item quantity="other">через %1$d дней</item>
     </plurals>
     <plurals name="ed_relative_days_past">
         <item quantity="one">%1$d день назад</item>
+        <item quantity="few">%1$d дня назад</item>
+        <item quantity="many">%1$d дней назад</item>
         <item quantity="other">%1$d дней назад</item>
     </plurals>
     <plurals name="ed_task_subtask_count">
         <item quantity="one">%1$d из %2$d</item>
+        <item quantity="few">%1$d из %2$d</item>
+        <item quantity="many">%1$d из %2$d</item>
         <item quantity="other">%1$d из %2$d</item>
     </plurals>
     <plurals name="ed_more_completed_count">
-        <item quantity="one">%1$d более выполнено</item>
-        <item quantity="other">%1$d более выполнено</item>
+        <item quantity="one">Ещё выполнено: %1$d</item>
+        <item quantity="few">Ещё выполнено: %1$d</item>
+        <item quantity="many">Ещё выполнено: %1$d</item>
+        <item quantity="other">Ещё выполнено: %1$d</item>
     </plurals>
     <plurals name="ed_minutes_before_count">
-        <item quantity="one">%1$d минуту назад</item>
-        <item quantity="other">%1$d минут назад</item>
+        <item quantity="one">за %1$d минуту</item>
+        <item quantity="few">за %1$d минуты</item>
+        <item quantity="many">за %1$d минут</item>
+        <item quantity="other">за %1$d минут</item>
     </plurals>
     <string name="ed_day_add_on">Добавить на %1$s</string>
     <string name="ed_tomorrow">Завтра</string>
@@ -545,8 +577,10 @@
     <string name="ed_task_completed_status">%1$s, выполнено</string>
     <string name="ed_task_bucket_count">%1$s · %2$d</string>
     <plurals name="ed_more_occurrences_count">
-        <item quantity="one">%1$d больше случаев</item>
-        <item quantity="other">%1$d больше случаев</item>
+        <item quantity="one">Ещё %1$d повтор</item>
+        <item quantity="few">Ещё %1$d повтора</item>
+        <item quantity="many">Ещё %1$d повторов</item>
+        <item quantity="other">Ещё %1$d повторов</item>
     </plurals>
     <string name="ed_task_filter_all">Все</string>
     <string name="ed_task_filter_active">Активные</string>
@@ -583,11 +617,15 @@
     <string name="ed_task_subtask_of_parent">Подзадача для %1$s, %2$s</string>
     <string name="ed_contact_unknown">Неизвестно</string>
     <plurals name="ed_contact_days_until">
-        <item quantity="one">В день %1$d</item>
+        <item quantity="one">Через %1$d день</item>
+        <item quantity="few">Через %1$d дня</item>
+        <item quantity="many">Через %1$d дней</item>
         <item quantity="other">Через %1$d дней</item>
     </plurals>
     <plurals name="ed_contact_age_years">
         <item quantity="one">%1$d год</item>
+        <item quantity="few">%1$d года</item>
+        <item quantity="many">%1$d лет</item>
         <item quantity="other">%1$d лет</item>
     </plurals>
 </resources>
