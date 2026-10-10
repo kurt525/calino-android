@@ -155,6 +155,23 @@ class CalDavDiscoveryTest {
     }
 
     @Test
+    fun `scheduling capability falls back to OPTIONS when PROPFIND omits DAV header`() = runBlocking {
+        server.enqueue(multiStatus(CalDavFixtures.Principal))   // well-known probe
+        server.enqueue(multiStatus(CalDavFixtures.Principal))   // current-user-principal
+        server.enqueue(multiStatus(CalDavFixtures.HomeSet))     // calendar-home-set
+        server.enqueue(multiStatus("""<multistatus xmlns="DAV:" xmlns:C="urn:ietf:params:xml:ns:caldav"><response><propstat><prop><C:calendar-user-address-set><href>mailto:test@example.com</href></C:calendar-user-address-set></prop><status>HTTP/1.1 200 OK</status></propstat></response></multistatus>"""))
+        server.enqueue(MockResponse().setResponseCode(200).setHeader("DAV", "1, 2, 3, calendar-access, calendar-auto-schedule"))
+        server.enqueue(multiStatus(CalDavFixtures.Calendars))
+
+        val account = discovery().discoverAccount(url().trimEnd('/'), credentials)
+
+        assertEquals(setOf("mailto:test@example.com"), account.calendarUserAddresses)
+        assertTrue(account.autoSchedule)
+        val methods = (1..6).map { server.takeRequest().method }
+        assertEquals(listOf("PROPFIND", "PROPFIND", "PROPFIND", "PROPFIND", "OPTIONS", "PROPFIND"), methods)
+    }
+
+    @Test
     fun `discovery rejects a principal href on another origin`() = runBlocking {
         val other = MockWebServer().also { it.start() }
         try {
