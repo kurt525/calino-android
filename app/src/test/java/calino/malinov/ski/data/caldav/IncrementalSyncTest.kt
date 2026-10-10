@@ -176,7 +176,7 @@ END:VCALENDAR
             </d:multistatus>""".trimIndent()
         ))
         server.enqueue(MockResponse().setResponseCode(200)
-            .setHeader("ETag", ""etag-new"").setBody(updated))
+            .setHeader("ETag", "\"etag-new\"").setBody(updated))
         val result = CalDavFetcher(DavHttp()).fetchIncremental(
             calendar = DiscoveredCalendar(
                 url = collection, displayName = "Calendar", color = 1L,
