@@ -309,7 +309,7 @@
     <string name="cal_day_with_time">%1$s · %2$s</string>
     <string name="cal_day_all_day">%1$s · весь день</string>
     <plurals name="cal_open_tasks_due">
-        <item quantity="one">1 открытая задача</item>
+        <item quantity="one">%1$d открытая задача</item>
         <item quantity="few">%1$d открытые задачи</item>
         <item quantity="many">%1$d открытых задач</item>
         <item quantity="other">%1$d открытых задач</item>
@@ -384,25 +384,25 @@
     <string name="cal_task_count">Задачи %1$d</string>
     <string name="cal_task_count_one">Задача %1$d</string>
     <plurals name="cal_day_span_count">
-        <item quantity="one">1 день</item>
+        <item quantity="one">%1$d день</item>
         <item quantity="few">%1$d дня</item>
         <item quantity="many">%1$d дней</item>
         <item quantity="other">%1$d дней</item>
     </plurals>
     <plurals name="cal_overflow_event_count">
-        <item quantity="one">1 событие</item>
+        <item quantity="one">%1$d событие</item>
         <item quantity="few">%1$d события</item>
         <item quantity="many">%1$d событий</item>
         <item quantity="other">%1$d событий</item>
     </plurals>
     <plurals name="cal_overflow_task_count">
-        <item quantity="one">1 задача</item>
+        <item quantity="one">%1$d задача</item>
         <item quantity="few">%1$d задачи</item>
         <item quantity="many">%1$d задач</item>
         <item quantity="other">%1$d задач</item>
     </plurals>
     <plurals name="cal_show_more_all_day_count">
-        <item quantity="one">Показать ещё 1 элемент на весь день</item>
+        <item quantity="one">Показать ещё %1$d элемент на весь день</item>
         <item quantity="few">Показать ещё %1$d элемента на весь день</item>
         <item quantity="many">Показать ещё %1$d элементов на весь день</item>
         <item quantity="other">Показать ещё %1$d элементов на весь день</item>

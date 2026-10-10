@@ -69,9 +69,20 @@ for base, ru, locale_config in roots:
                 errors.append(f"{name}:{key} missing Russian plural quantities: {sorted(RU_REQUIRED_QUANTITIES-set(dst_forms))}")
                 continue
             source_other=src_forms.get("other","")
+            source_one=src_forms.get("one","")
+            source_other_placeholders=Counter(PLACEHOLDER.findall(source_other))
+            source_one_placeholders=Counter(PLACEHOLDER.findall(source_one))
             for quantity in RU_REQUIRED_QUANTITIES:
                 text=dst_forms[quantity]
-                reference = src_forms.get("one","") if quantity == "one" else source_other
+                # English singular resources sometimes hard-code the literal 1 while
+                # the plural form receives the count as a formatting argument. Russian
+                # quantity=one also matches 21, 31, ...; therefore it must keep that
+                # count placeholder or Android Lint reports ImpliedQuantity.
+                reference = (
+                    source_other
+                    if quantity == "one" and not source_one_placeholders and source_other_placeholders
+                    else source_one if quantity == "one" else source_other
+                )
                 if Counter(PLACEHOLDER.findall(text)) != Counter(PLACEHOLDER.findall(reference)):
                     errors.append(f"{name}:{key}:{quantity} placeholders differ from source plural form")
                 if not text.strip():
