@@ -228,6 +228,7 @@ class CalDavDiscoveryTest {
             server.enqueue(principalResponse("/principals/test-user/"))
             server.enqueue(homeSetResponse("/calendars/test-user/"))
             server.enqueue(multiStatus("<multistatus xmlns=\"DAV:\"/>")) // scheduling identity
+            server.enqueue(MockResponse().setResponseCode(200).setHeader("DAV", "1, 2, 3, calendar-access")) // OPTIONS fallback
             server.enqueue(multiStatus(
                 """<multistatus xmlns="DAV:" xmlns:C="urn:ietf:params:xml:ns:caldav"><response>
                     <href>${other.url("/calendar/")}</href><propstat><prop>
@@ -242,7 +243,7 @@ class CalDavDiscoveryTest {
             assertTrue("expected a rejected DAV href, got $error", error is CalDavException)
             assertEquals(CalDavErrorCode.NotCalDav, (error as CalDavException).code)
             assertEquals(0, other.requestCount)
-            assertEquals(5, server.requestCount)
+            assertEquals(6, server.requestCount)
         } finally {
             other.shutdown()
         }
