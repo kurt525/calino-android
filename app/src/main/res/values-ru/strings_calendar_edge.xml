@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="cal_zoom_week_edge_hint">↑ ПОВЕСТКА ДНЯ · ↓ МЕСЯЦ</string>
+    <string name="cal_zoom_month_edge_hint">↑ СВЕРНУТЬ · ↓ ГОД</string>
+    <string name="set_calendar_edge_swipes">Проведите пальцем до Года и Повестки дня</string>
+    <string name="set_calendar_edge_swipes_description">Проведите пальцем вниз мимо полного месяца, чтобы открыть Год, или вверх мимо недели, чтобы открыть Повестку дня.</string>
+    <string name="set_calendar_edge_swipes_search">жесты масштабирования календаря переходы свайп год повестка дня</string>
+    <string name="cal_zoom_week_only_hint">↓ МЕСЯЦ</string>
+    <string name="cal_zoom_month_only_hint">↑ СВЕРНУТЬ</string>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="provider_create_repeat">Создание повторяющегося события в календаре устройства пока не поддерживается.</string>
+    <string name="provider_update_future">Календари устройств поддерживают изменение этого события или всей серии, но не будущих событий.</string>
+    <string name="provider_update_repeat">Изменение существующего правила повторения в календаре устройства пока не поддерживается.</string>
+    <string name="provider_exception_changed">Это повторение уже изменено в приложении, которому оно принадлежит. Обновите календарь и попробуйте снова.</string>
+    <string name="provider_delete_future">Календари устройств поддерживают удаление этого события или всей серии, но не будущих событий.</string>
+    <string name="provider_changed_refresh">Событие было изменено в приложении, которому оно принадлежит. Обновите календарь и попробуйте снова.</string>
+    <string name="provider_move">События не могут быть перемещены между календарями устройства или между устройственным календарем и CalDAV календарями.</string>
+    <string name="provider_missing_calendar">Этот календарь устройства больше недоступен.</string>
+    <string name="provider_ownership">Владелец этого календаря устройства изменился. Выключите и снова включите режим редактирования перед повторной попыткой.</string>
+    <string name="provider_removed">Это событие было удалено приложением, которому оно принадлежит. Обновите календарь.</string>
+    <string name="provider_changed">Это событие изменилось в приложении, которому оно принадлежит. Обновите календарь и попробуйте снова.</string>
+    <string name="provider_editing_disabled">Редактирование не включено для этого календаря на устройстве.</string>
+    <string name="provider_readonly">Этот календарь на устройстве только для чтения или разрешение на запись в календарь было отозвано.</string>
+    <string name="provider_own_projection">Calino не может импортировать или редактировать свою собственную проекцию Android.</string>
+    <string name="provider_new_identity">Поставщик календаря не вернул идентификатор нового события.</string>
+    <string name="provider_reminders">Поставщик календаря не сохранил все напоминания.</string>
+    <string name="provider_exception_identity">Поставщик календаря не вернул идентификатор исключения.</string>
+    <string name="provider_exception_reminders">Поставщик календаря не сохранил все напоминания для исключений.</string>
+    <string name="provider_reminder_state">Поставщик календаря не вернул состояние напоминания.</string>
+    <string name="provider_permission">Для изменения календаря этого устройства требуется разрешение на запись в календарь.</string>
+    <string name="provider_rejected">Поставщик календаря отклонил это изменение.</string>
+    <string name="provider_unsupported">Календарь устройства не поддерживает изменение %1$s. Очистите эти поля и попробуйте снова.</string>
+    <string name="provider_attendees">участники</string>
+    <string name="provider_categories">категории</string>
+    <string name="provider_relationships">отношения</string>
+    <string name="provider_travel">время в пути</string>
+    <string name="provider_account_properties">Учётные записи Calino не имеют редактируемых свойств</string>
+    <string name="provider_auth_tokens">Calino не выдаёт токены авторизации</string>
+    <string name="provider_password_change">Измените пароль в списке учётных записей Calino\'</string>
+</resources>
