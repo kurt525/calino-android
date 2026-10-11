@@ -17,7 +17,7 @@ data class CalDavAccount(
     val addressBooks: List<ContactAddressBook> = emptyList(),
     /** Principal CALDAV:calendar-user-address-set; public identity, never a password. */
     val calendarUserAddresses: Set<String> = emptySet(),
-    /** True only when discovery observed DAV: calendar-auto-schedule. */
+    /** True when discovery confirms DAV: calendar-auto-schedule. */
     val autoSchedule: Boolean = false,
 )
 

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name" translatable="false">Calino</string>
+    <string name="wear_agenda">Расписание</string>
+    <string name="wear_tasks">Задачи</string>
+    <string name="wear_nothing_planned">Ничего не запланировано</string>
+    <string name="wear_no_open_tasks">Нет открытых задач</string>
+    <string name="wear_watch_action">Действие с часами</string>
+    <string name="wear_set_up_on_phone">Настройте Calino на вашем телефоне</string>
+    <string name="wear_sync_automatically">Часы будут синхронизироваться автоматически</string>
+    <string name="wear_cached_calendar">Кэшированный календарь</string>
+    <string name="wear_ended">завершено</string>
+    <string name="wear_open_details">Открыть детали</string>
+    <string name="wear_pending">В ожидании · %1$s</string>
+    <string name="wear_phone">Телефон</string>
+    <string name="wear_task">Задача</string>
+    <string name="wear_event">Событие</string>
+    <string name="wear_complete">Завершить</string>
+    <string name="wear_mark_task_done">Отметить эту задачу как выполненную</string>
+    <string name="wear_completed">Выполнено</string>
+    <string name="wear_tomorrow">Завтра</string>
+    <string name="wear_move_due_date">Перенести дату выполнения</string>
+    <string name="wear_moved">Перенесено</string>
+    <string name="wear_phone_unreachable">Телефон недоступен</string>
+    <string name="wear_group_overdue">Просрочено</string>
+    <string name="wear_group_today">Сегодня</string>
+    <string name="wear_group_upcoming">Предстоящие</string>
+    <string name="wear_group_undated">Без даты</string>
+    <string name="wear_saved_on_phone">Сохранено на телефоне</string>
+    <string name="wear_saved_waiting_to_sync">Сохранено · ожидание синхронизации</string>
+    <string name="wear_already_up_to_date">Уже актуально</string>
+    <string name="wear_conflict">Конфликт</string>
+    <string name="wear_not_found">Не найдено</string>
+    <string name="wear_rejected">Отклонено</string>
+    <string name="wear_expired">Истекло</string>
+    <string name="wear_no_account">Нет учётной записи</string>
+    <string name="wear_unsupported">Не поддерживается</string>
+    <string name="wear_ack_command_expired">Команда истекла</string>
+    <string name="wear_ack_connect_calino_on_phone">Подключите Calino на телефоне</string>
+    <string name="wear_ack_watch_data_no_longer_current">Данные часов устарели</string>
+    <string name="wear_ack_unsupported_command">Неподдерживаемая команда</string>
+    <string name="wear_ack_missing_target_day">Отсутствует целевой день</string>
+    <string name="wear_ack_task_changed_or_removed">Задача изменена или удалена</string>
+    <string name="wear_ack_task_changed_on_phone">Задача изменена на телефоне</string>
+    <string name="wear_updated_ago">Обновлено %1$s</string>
+    <string name="wear_some_items_hidden">Некоторые элементы скрыты</string>
+    <string name="wear_just_now">только что</string>
+    <plurals name="wear_minutes_ago">
+        <item quantity="one">%1$d минуту назад</item>
+        <item quantity="few">%1$d минуты назад</item>
+        <item quantity="many">%1$d минут назад</item>
+        <item quantity="other">%1$d минут назад</item>
+    </plurals>
+    <plurals name="wear_hours_ago">
+        <item quantity="one">%1$d час назад</item>
+        <item quantity="few">%1$d часа назад</item>
+        <item quantity="many">%1$d часов назад</item>
+        <item quantity="other">%1$d часов назад</item>
+    </plurals>
+    <plurals name="wear_days_ago">
+        <item quantity="one">%1$d день назад</item>
+        <item quantity="few">%1$d дня назад</item>
+        <item quantity="many">%1$d дней назад</item>
+        <item quantity="other">%1$d дней назад</item>
+    </plurals>
+    <string name="wear_today">Сегодня</string>
+    <string name="wear_all_day">Весь день</string>
+    <string name="wear_time_unavailable">Время недоступно</string>
+    <string name="wear_no_due_date">Нет крайнего срока</string>
+    <string name="wear_due_1_s">Срок %1$s</string>
+    <string name="wear_progress_percent">%1$d%% выполнено</string>
+    <string name="wear_open">Открыть</string>
+    <string name="wear_late">Просрочено</string>
+    <string name="wear_overdue_task">Просроченное задание</string>
+    <string name="wear_next_1_s">Далее · %1$s</string>
+    <string name="wear_now_until_1_s">Сейчас · до %1$s</string>
+    <string name="wear_task_with_schedule">Задание · %1$s</string>
+    <string name="wear_free">Свободно</string>
+    <string name="wear_no_plans">Нет планов</string>
+    <string name="wear_open_calino_on_phone_to_sync">Откройте Calino на телефоне для синхронизации</string>
+    <string name="wear_nothing_else_planned">Больше ничего не запланировано</string>
+    <plurals name="wear_more_items">
+        <item quantity="one">+%1$d ещё</item>
+        <item quantity="few">+%1$d ещё</item>
+        <item quantity="many">+%1$d ещё</item>
+        <item quantity="other">+%1$d ещё</item>
+    </plurals>
+    <string name="wear_tile_row">%1$s  %2$s</string>
+    <string name="wear_accessibility_title_and_description">%1$s: %2$s</string>
+    <string name="wear_complication_name_and_time">%1$s · ^1</string>
+    <string name="wear_complication_name_and_short">%1$s · %2$s</string>
+    <string name="wear_design_review">Обзор дизайна</string>
+</resources>

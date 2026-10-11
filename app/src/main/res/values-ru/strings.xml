@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name" translatable="false">Calino</string>
+    <string name="calino_widget_description">Сегодня\', события и задачи, по одной строке каждая</string>
+    <string name="calino_cards_widget_description">Сегодня\', события и задачи в виде карточек, с местоположениями</string>
+    <string name="calino_tasks_widget_description">Задачи, срок которых наступил сейчас и далее, включая просроченные</string>
+    <string name="app_function_display_description">Читайте свои события и задачи, открывайте их в Calino и готовьте новые для сохранения</string>
+    <string name="phone_search_hint">Поиск в Calino</string>
+    <string name="phone_search_settings_description">События и задачи</string>
+</resources>

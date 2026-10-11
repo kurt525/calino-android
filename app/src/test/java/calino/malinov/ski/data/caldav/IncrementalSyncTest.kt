@@ -151,6 +151,52 @@ class IncrementalSyncTest {
     }
 
     @Test
+    fun `unchanged ctag still downloads attendee RSVP updates by sync token`() = runBlocking {
+        val collection = server.url("/cal/").toString()
+        val href = "${collection}meeting.ics"
+        val initial = """BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID:rsvp-test
+DTSTART:20261012T120000Z
+DTEND:20261012T130000Z
+SUMMARY:Meeting
+ATTENDEE;PARTSTAT=NEEDS-ACTION:mailto:bob@example.test
+END:VEVENT
+END:VCALENDAR
+"""
+        val updated = initial.replace("PARTSTAT=NEEDS-ACTION", "PARTSTAT=ACCEPTED")
+        server.enqueue(MockResponse().setResponseCode(207).setBody(
+            """<d:multistatus xmlns:d="DAV:">
+              <d:response><d:href>$href</d:href><d:propstat>
+                <d:prop><d:getetag>&quot;etag-new&quot;</d:getetag></d:prop>
+                <d:status>HTTP/1.1 200 OK</d:status>
+              </d:propstat></d:response>
+              <d:sync-token>token-new</d:sync-token>
+            </d:multistatus>""".trimIndent()
+        ))
+        server.enqueue(MockResponse().setResponseCode(200)
+            .setHeader("ETag", "\"etag-new\"").setBody(updated))
+        val result = CalDavFetcher(DavHttp()).fetchIncremental(
+            calendar = DiscoveredCalendar(
+                url = collection, displayName = "Calendar", color = 1L,
+                readOnly = false, components = setOf("VEVENT"),
+                ctag = "same-ctag", syncToken = "token-new",
+            ),
+            credentials = credentials,
+            cachedResources = listOf(CalendarResource(href, "etag-old", initial)),
+            windowStart = java.time.LocalDate.of(2026, 10, 1),
+            windowEnd = java.time.LocalDate.of(2026, 10, 31),
+            storedCursor = CollectionCursor(ctag = "same-ctag", syncToken = "token-old"),
+        )
+        assertEquals(CalendarFetchMode.Incremental, result.mode)
+        assertEquals("token-new", result.cursor.syncToken)
+        assertTrue(result.resources.single().ics.contains("PARTSTAT=ACCEPTED"))
+        assertEquals("REPORT", server.takeRequest().method)
+        assertEquals("GET", server.takeRequest().method)
+    }
+
+    @Test
     fun `non-207 report invalidates the token and requests a full listing`() = runBlocking {
         val collection = server.url("/cal/").toString()
         server.enqueue(

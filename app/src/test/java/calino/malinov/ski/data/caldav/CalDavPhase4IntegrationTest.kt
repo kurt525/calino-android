@@ -213,9 +213,12 @@ class CalDavPhase4IntegrationTest {
     }
 
     @Test
-    fun `an unchanged ctag skips the report when a committed token and cache exist`() = runBlocking {
+    fun `unchanged ctag still checks sync token and retains cache for an empty delta`() = runBlocking {
         val collection = server.url("/cal/").toString()
         val cached = listOf(CalendarResource("${collection}unchanged.ics", "etag", calendarIcs("unchanged")))
+        server.enqueue(multiStatus("""<d:multistatus xmlns:d="DAV:">
+            <d:sync-token>next-token</d:sync-token>
+        </d:multistatus>""".trimIndent()))
 
         val result = fetcher().fetchIncremental(
             calendar = calendar(url = collection, ctag = "same", syncToken = "fresh-token"),
@@ -226,10 +229,13 @@ class CalDavPhase4IntegrationTest {
             storedCursor = CollectionCursor(ctag = "same", syncToken = "committed-token"),
         )
 
-        assertEquals(CalendarFetchMode.Skipped, result.mode)
+        assertEquals(CalendarFetchMode.Incremental, result.mode)
         assertEquals(cached, result.resources)
-        assertEquals(CollectionCursor("same", "committed-token"), result.cursor)
-        assertEquals(0, server.requestCount)
+        assertEquals(CollectionCursor("same", "next-token"), result.cursor)
+        assertEquals(1, server.requestCount)
+        val report = server.takeRequest()
+        assertEquals("REPORT", report.method)
+        assertTrue(report.body.readUtf8().contains("committed-token"))
     }
 
     @Test

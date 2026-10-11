@@ -208,18 +208,10 @@ class CalDavFetcher(
             )
         }
 
-        // A ctag is only a hint when used by itself. With a committed sync
-        // token and a complete snapshot, however, an equal fresh ctag is the
-        // conservative skip rule shared by IncrementalSync. The explicit
-        // parameter is important: when it is omitted, the calendar's fields
-        // are one cursor and cannot be compared with themselves.
-        if (storedCursor != null && previous.canSkipWith(CollectionCursor(ctag = calendar.ctag))) {
-            return IncrementalFetchResult(
-                fetchResult = FetchResult(resources = cachedResources),
-                cursor = previous.copy(ctag = calendar.ctag),
-                mode = CalendarFetchMode.Skipped,
-            )
-        }
+        // RFC 6578 sync-token is authoritative for change detection.
+        // Scheduling servers can update attendee PARTSTAT while leaving
+        // the collection ctag unchanged; skipping here makes the organizer
+        // show a stale "awaiting reply" status after a successful sync.
 
         val report = incrementalSync.syncCollection(
             collectionUrl = calendar.url,

@@ -84,11 +84,24 @@ class CalDavDiscovery(private val http: DavHttp = DavHttp()) : CalDavClient {
             .flatMap { DavXml.elements(it, DavNs.Dav, "href") }
             .mapNotNull { it.textContent?.trim()?.takeIf(String::isNotBlank) }
             .toSet()
-        val capability = response.header("DAV")?.split(',')?.any {
-            it.trim().equals("calendar-auto-schedule", ignoreCase = true)
-        } == true
+        val capability = if (advertisesAutoSchedule(response)) {
+            true
+        } else {
+            // RFC 4918 advertises DAV compliance classes on OPTIONS. Some
+            // servers, including Stalwart, do not repeat the DAV header on
+            // PROPFIND responses, so checking PROPFIND alone produces a false
+            // negative even though calendar-auto-schedule is supported.
+            runCatching {
+                http.request(method = "OPTIONS", url = principalUrl, credentials = credentials)
+            }.getOrNull()?.let(::advertisesAutoSchedule) == true
+        }
         return addresses to capability
     }
+
+    private fun advertisesAutoSchedule(response: DavResponse): Boolean =
+        response.header("DAV")?.split(',')?.any {
+            it.trim().equals("calendar-auto-schedule", ignoreCase = true)
+        } == true
 
     // --- step 1: where does this server actually live -------------------------
 
